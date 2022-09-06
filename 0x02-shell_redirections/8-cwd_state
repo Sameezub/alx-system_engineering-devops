@@ -1,1 +1,2 @@
-#!/bin/bash
+#i/bin/bas
+ls -la > ls_cwd-content
