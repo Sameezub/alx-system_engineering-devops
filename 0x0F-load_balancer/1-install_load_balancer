@@ -10,14 +10,14 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend  sameezub-frontend
+frontend  http-in
         bind *:80
         mode http
-        default_backend sameezub-backend
-backend sameezub-backend
+        default_backend servers
+backend servers
         balance roundrobin
-        server web-01 100.25.45.206:80 check
-        server web-02 18.210.13.165:80 check
+        server 110102-web-01 100.25.45.206:80 check
+        server 110102-web-02 18.210.13.165:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
